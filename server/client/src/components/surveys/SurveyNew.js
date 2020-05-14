@@ -9,7 +9,9 @@ class SurveyNew extends Component {
     return (
       <div>
         {this.state.showFormReview ? (
-          <SurveyFormReview />
+          <SurveyFormReview
+            onCancel={() => this.setState({ showFormReview: false })}
+          />
         ) : (
           <SurveyForm
             onSurveySubmit={() => this.setState({ showFormReview: true })}
