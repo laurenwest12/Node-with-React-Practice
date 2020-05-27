@@ -85,4 +85,13 @@ module.exports = (app) => {
       res.status(422).send(err);
     }
   });
+
+  app.delete('/api/surveys/:surveyId', (req, res, next) => {
+    const id = req.params.surveyId;
+    Survey.deleteOne({
+      _id: id,
+    })
+      .then(() => res.status(204).end())
+      .catch(next);
+  });
 };
